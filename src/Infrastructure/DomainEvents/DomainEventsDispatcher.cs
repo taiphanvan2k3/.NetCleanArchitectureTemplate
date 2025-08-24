@@ -31,7 +31,7 @@ internal sealed class DomainEventsDispatcher(IServiceProvider serviceProvider) :
                     continue;
                 }
 
-                HandlerWrapper handlerWrapper = HandlerWrapper.Create(handler, domainEventType);
+                var handlerWrapper = HandlerWrapper.Create(handler, domainEventType);
 
                 await handlerWrapper.Handle(domainEvent, cancellationToken);
             }
